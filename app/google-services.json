@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "930949124660",
+    "firebase_url": "https://the-event-d2a5a.firebaseio.com",
+    "project_id": "the-event-d2a5a",
+    "storage_bucket": "the-event-d2a5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930949124660:android:ae2be3fed146365c87f061",
+        "android_client_info": {
+          "package_name": "com.bahaa.eventorganizerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930949124660-4ah13fcjpshtt722li671uks6hmef9oj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bahaa.eventorganizerapp",
+            "certificate_hash": "e07b159ba8d832c83c425429bebb454a388301ea"
+          }
+        },
+        {
+          "client_id": "930949124660-3m92ioa0p8t5a1g8bo4s7amgp48qth8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC0FzWc73sEAXXPfjNRTmewXM9ZJmdYaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930949124660-3m92ioa0p8t5a1g8bo4s7amgp48qth8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

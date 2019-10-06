@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">The Event - Organizer</string>
+    <string name="admin_username">اسم صاحب الحساب:</string>
+    <string name="admin_management_title">Admin Control</string>
+    <string name="admin_text">أدمن</string>
+    <string name="admin_phone_error">رقم غير صحيح</string>
+    <string name="admin_name_error">لا يمكن ترك خانة الاسم فارغة</string>
+    <string name="admin_phone">رقم الهاتف</string>
+    <string name="no_admin_text">حسابك لا يمتلك صلاحيات الدخول هنا</string>
+    <string name="content_manager_text">مدير محتوى</string>
+    <string name="active_text">نشط</string>
+    <string name="inactive_text">غير نشط</string>
+    <string name="add_priv">اضافة صلاحيات</string>
+    <string name="priv_name">اسم صاحب الحساب</string>
+    <string name="priv_changed">تم تغيير إعدادات حسابك من قبل الأدمن</string>
+    <string name="login_btn_text">دخول</string>
+    <string name="are_you_sure">هل تريد حذف العضو؟</string>
+    <string name="no_sure">لا</string>
+    <string name="yes_sure">نعم</string>
+    <string name="card_mobile_text">رقم الموبايل:</string>
+    <string name="card_priv_text">نوع الصلاحيات:</string>
+    <string name="card_status_text">حالة الحساب:</string>
+
+</resources>
