@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/main_grp"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/add"
+            android:icon="@drawable/ic_admin"
+            android:title="@string/menu_add" />
+
+        <item
+            android:id="@+id/organizers"
+            android:icon="@drawable/ic_organizer"
+            android:title="المنظمين" />
+
+
+    </group>
+
+    <group
+        android:id="@+id/auth_grp"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/menu_logout" />
+    </group>
+
+
+</menu>

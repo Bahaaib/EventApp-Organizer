@@ -1,10 +1,10 @@
 package com.bahaa.eventorganizerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.login_dummy_btn)
     void performLogin(){
-        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
      }
 

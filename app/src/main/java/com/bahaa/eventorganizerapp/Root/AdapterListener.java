@@ -4,4 +4,5 @@ public interface AdapterListener {
 
     void onDataRemoved(HeadModel head);
 
+
 }

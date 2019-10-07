@@ -80,7 +80,5 @@
 
     <dimen name="forgot_margin_top">45dp</dimen>
 
-    <string name="ok_option">تم</string>
-    <string name="cancel_option">الغاء</string>
 
 </resources>

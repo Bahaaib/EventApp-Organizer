@@ -3,10 +3,8 @@ package com.bahaa.eventorganizerapp;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.widget.Toast;
-
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -169,7 +167,7 @@ public class AdminActivity extends AppCompatActivity implements DialogListener, 
     }
 
     private void forceStepBack() {
-        Intent intent = new Intent(AdminActivity.this, LoginActivity.class);
+        Intent intent = new Intent(AdminActivity.this, HomeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
