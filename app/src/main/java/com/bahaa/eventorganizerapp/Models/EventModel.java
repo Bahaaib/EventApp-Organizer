@@ -3,12 +3,18 @@ package com.bahaa.eventorganizerapp.Models;
 public class EventModel {
 
     private String key;
+    private String title;
+    private String description;
+    private String organizer;
     private String image;
     private String startDate;
     private String endDate;
-    private String title;
+    private String startTime;
+    private String endTime;
+    private String address;
     private int capacity;
     private int ticketsAvailable;
+    private float ticketPrice;
     private double latitude;
     private double longitude;
     private String distance;
@@ -22,6 +28,30 @@ public class EventModel {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getOrganizer() {
+        return organizer;
+    }
+
+    public void setOrganizer(String organizer) {
+        this.organizer = organizer;
     }
 
     public String getImage() {
@@ -48,12 +78,28 @@ public class EventModel {
         this.endDate = endDate;
     }
 
-    public String getTitle() {
-        return title;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getCapacity() {
@@ -70,6 +116,14 @@ public class EventModel {
 
     public void setTicketsAvailable(int ticketsAvailable) {
         this.ticketsAvailable = ticketsAvailable;
+    }
+
+    public float getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(float ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 
     public double getLatitude() {
