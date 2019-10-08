@@ -47,6 +47,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class HomeActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener, EventAdapterListener {
@@ -60,8 +61,8 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
     NavigationView navigationView;
 
     //Event image..
-    @BindView(R.id.add_img_btn)
-    AppCompatButton galleryButton;
+    @BindView(R.id.add_event_btn)
+    AppCompatButton addEventButton;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     View header;
@@ -114,14 +115,15 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         restoreSavedPrefs();
 
         //Gallery image..
-        galleryButton = findViewById(R.id.add_img_btn);
         mProgressDialog = new ProgressDialog(this);
 
-        galleryButton.setOnClickListener(v -> {
+       /* galleryButton.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("image/*");
             startActivityForResult(intent, GALLERY_INTENT);
-        });
+        });*/
+
+
 
         //Firebase storage
         storage = FirebaseStorage.getInstance().getReference();
@@ -226,6 +228,11 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
 
+    }
+    @OnClick(R.id.add_event_btn)
+    void addNewEvent(){
+        Intent intent = new Intent(HomeActivity.this, EventActivity.class);
+        startActivity(intent);
     }
 
     private void callEventsDatabase() {

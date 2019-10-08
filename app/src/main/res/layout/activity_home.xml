@@ -51,7 +51,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/add_img_btn"
+                        android:id="@+id/add_event_btn"
                         android:layout_width="@dimen/info_button_width"
                         android:layout_height="@dimen/info_button_height"
                         android:layout_alignParentEnd="true"
