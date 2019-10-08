@@ -20,8 +20,8 @@ import com.bahaa.eventorganizerapp.Adapters.HeadRecyclerAdapter;
 import com.bahaa.eventorganizerapp.Dialogs.AdminDialog;
 import com.bahaa.eventorganizerapp.Models.HeadModel;
 import com.bahaa.eventorganizerapp.R;
-import com.bahaa.eventorganizerapp.Root.AdapterListener;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
+import com.bahaa.eventorganizerapp.Root.HeadAdapterListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class AdminActivity extends AppCompatActivity implements DialogListener, AdapterListener {
+public class AdminActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener {
 
     private final String HEADS_DB = "head";
     private final String TAG = "admin_dialg";

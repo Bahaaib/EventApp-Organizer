@@ -28,8 +28,8 @@ import com.bahaa.eventorganizerapp.Adapters.EventRecyclerAdapter;
 import com.bahaa.eventorganizerapp.Models.EventModel;
 import com.bahaa.eventorganizerapp.Models.HeadModel;
 import com.bahaa.eventorganizerapp.R;
-import com.bahaa.eventorganizerapp.Root.AdapterListener;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
+import com.bahaa.eventorganizerapp.Root.HeadAdapterListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
@@ -48,7 +48,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class HomeActivity extends AppCompatActivity implements DialogListener, AdapterListener {
+public class HomeActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener {
 
     private static final int GALLERY_INTENT = 22;
 

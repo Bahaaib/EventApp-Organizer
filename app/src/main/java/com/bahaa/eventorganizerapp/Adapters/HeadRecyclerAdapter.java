@@ -19,7 +19,7 @@ import com.bahaa.eventorganizerapp.Activities.AdminActivity;
 import com.bahaa.eventorganizerapp.Dialogs.AdminDialog;
 import com.bahaa.eventorganizerapp.Models.HeadModel;
 import com.bahaa.eventorganizerapp.R;
-import com.bahaa.eventorganizerapp.Root.AdapterListener;
+import com.bahaa.eventorganizerapp.Root.HeadAdapterListener;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ public class HeadRecyclerAdapter extends RecyclerView.Adapter {
     private ArrayList<HeadModel> adapterModel;
     private AdminDialog adminDialog;
     private DialogInterface.OnClickListener dialogClickListener;
-    private AdapterListener adapterListener;
+    private HeadAdapterListener headAdapterListener;
 
     {
         adminDialog = new AdminDialog();
@@ -43,7 +43,7 @@ public class HeadRecyclerAdapter extends RecyclerView.Adapter {
     public HeadRecyclerAdapter(Context context, ArrayList<HeadModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
-        adapterListener = (AdapterListener) context;
+        headAdapterListener = (HeadAdapterListener) context;
     }
 
     //Here We tell the RecyclerView what to show at each element of it..it'd be a cardView!
@@ -150,7 +150,7 @@ public class HeadRecyclerAdapter extends RecyclerView.Adapter {
                             adapterModel.get(position).setStatus(null);
                             headModel = adapterModel.get(position);
 
-                            adapterListener.onDataRemoved(headModel);
+                            headAdapterListener.onDataRemoved(headModel);
                             break;
 
                         case DialogInterface.BUTTON_NEGATIVE:
