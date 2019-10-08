@@ -1,4 +1,4 @@
-package com.bahaa.eventorganizerapp.Root;
+package com.bahaa.eventorganizerapp.Models;
 
 import java.io.Serializable;
 

@@ -15,9 +15,9 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.DialogFragment;
 
+import com.bahaa.eventorganizerapp.Models.HeadModel;
 import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
-import com.bahaa.eventorganizerapp.Root.HeadModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.NumberFormat;

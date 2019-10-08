@@ -1,4 +1,4 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,10 +16,12 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bahaa.eventorganizerapp.Adapters.HeadRecyclerAdapter;
 import com.bahaa.eventorganizerapp.Dialogs.AdminDialog;
+import com.bahaa.eventorganizerapp.Models.HeadModel;
+import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.AdapterListener;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
-import com.bahaa.eventorganizerapp.Root.HeadModel;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

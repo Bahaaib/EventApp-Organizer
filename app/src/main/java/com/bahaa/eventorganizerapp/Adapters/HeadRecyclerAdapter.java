@@ -1,15 +1,13 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -17,9 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bahaa.eventorganizerapp.Activities.AdminActivity;
 import com.bahaa.eventorganizerapp.Dialogs.AdminDialog;
+import com.bahaa.eventorganizerapp.Models.HeadModel;
+import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.AdapterListener;
-import com.bahaa.eventorganizerapp.Root.HeadModel;
 
 import java.util.ArrayList;
 
@@ -40,7 +40,7 @@ public class HeadRecyclerAdapter extends RecyclerView.Adapter {
         adminDialog = new AdminDialog();
     }
 
-    HeadRecyclerAdapter(Context context, ArrayList<HeadModel> adapterModel) {
+    public HeadRecyclerAdapter(Context context, ArrayList<HeadModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
         adapterListener = (AdapterListener) context;

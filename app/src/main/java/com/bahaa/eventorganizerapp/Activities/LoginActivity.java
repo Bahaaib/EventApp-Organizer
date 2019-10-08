@@ -1,10 +1,12 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+
+import com.bahaa.eventorganizerapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

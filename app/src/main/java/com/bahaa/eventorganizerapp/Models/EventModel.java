@@ -1,4 +1,4 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Models;
 
 public class EventModel {
 

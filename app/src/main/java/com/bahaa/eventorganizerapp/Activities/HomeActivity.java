@@ -1,4 +1,4 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -24,9 +24,12 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bahaa.eventorganizerapp.Adapters.EventRecyclerAdapter;
+import com.bahaa.eventorganizerapp.Models.EventModel;
+import com.bahaa.eventorganizerapp.Models.HeadModel;
+import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.AdapterListener;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
-import com.bahaa.eventorganizerapp.Root.HeadModel;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
@@ -48,11 +51,13 @@ import butterknife.Unbinder;
 public class HomeActivity extends AppCompatActivity implements DialogListener, AdapterListener {
 
     private static final int GALLERY_INTENT = 22;
+
     ArrayList<HeadModel> headList;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @BindView(R.id.nv)
     NavigationView navigationView;
+
     //Event image..
     @BindView(R.id.add_img_btn)
     AppCompatButton galleryButton;
@@ -60,15 +65,18 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, A
     Toolbar toolbar;
     View header;
     TextView headName;
+
     //Firebase Storage..
     StorageReference storage;
     @BindView(R.id.events_rv)
     RecyclerView recyclerView;
     private DatabaseReference mRef;
+
     //Firebase Auth
     private FirebaseAuth mAuth;
     private SharedPreferences preferences;
     private String headPhoneNumber;
+
     //Navigation Drawer
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private ProgressDialog mProgressDialog;
@@ -76,7 +84,6 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, A
     private Unbinder unbinder;
     private ArrayList<EventModel> eventsList;
     private EventRecyclerAdapter adapter;
-    private GridLayoutManager gridLayoutManager;
 
 
     @Override
@@ -90,7 +97,6 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, A
 
         //Firebase DB
         FirebaseApp.initializeApp(this);
-        //Firebase DB
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         mRef = database.getReference();
 
@@ -216,7 +222,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, A
         eventsList = new ArrayList<>();
         adapter = new EventRecyclerAdapter(this, eventsList);
         recyclerView.setAdapter(adapter);
-        gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
 
     }

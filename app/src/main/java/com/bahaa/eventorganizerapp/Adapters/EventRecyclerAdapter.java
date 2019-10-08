@@ -1,4 +1,4 @@
-package com.bahaa.eventorganizerapp;
+package com.bahaa.eventorganizerapp.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bahaa.eventorganizerapp.Models.EventModel;
+import com.bahaa.eventorganizerapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
