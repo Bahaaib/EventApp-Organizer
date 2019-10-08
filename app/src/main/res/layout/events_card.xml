@@ -19,6 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="#757575" />
+
         <TextView
             android:id="@+id/future_events_date"
             android:layout_width="wrap_content"
@@ -41,12 +47,5 @@
             android:text="Codemotion Amsterdam Lorem ipsum dolor sit amet, consectetur adipisicing elit"
             android:textColor="@color/colorWhite"
             android:textStyle="bold" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.5"
-            android:background="#757575" />
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
