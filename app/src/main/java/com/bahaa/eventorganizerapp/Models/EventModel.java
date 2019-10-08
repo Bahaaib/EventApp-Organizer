@@ -12,11 +12,11 @@ public class EventModel {
     private String startTime;
     private String endTime;
     private String address;
-    private int capacity;
-    private int ticketsAvailable;
-    private float ticketPrice;
-    private double latitude;
-    private double longitude;
+    private Integer capacity;
+    private Integer ticketsAvailable;
+    private Float ticketPrice;
+    private Double latitude;
+    private Double longitude;
     private String distance;
 
     public EventModel() {
@@ -102,43 +102,43 @@ public class EventModel {
         this.address = address;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
-    public int getTicketsAvailable() {
+    public Integer getTicketsAvailable() {
         return ticketsAvailable;
     }
 
-    public void setTicketsAvailable(int ticketsAvailable) {
+    public void setTicketsAvailable(Integer ticketsAvailable) {
         this.ticketsAvailable = ticketsAvailable;
     }
 
-    public float getTicketPrice() {
+    public Float getTicketPrice() {
         return ticketPrice;
     }
 
-    public void setTicketPrice(float ticketPrice) {
+    public void setTicketPrice(Float ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

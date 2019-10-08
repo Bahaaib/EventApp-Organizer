@@ -61,6 +61,7 @@
     <string name="notification_center">Notification Center</string>
     <string name="notification_sent">تم إرسال التنبيه بنجاح</string>
     <string name="login_dialog_text">جاري تسجيل الدخول..</string>
+    <string name="event_removal">هل تريد حذف الإيفنت؟</string>
 
 
 </resources>

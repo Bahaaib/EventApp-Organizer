@@ -1,6 +1,8 @@
 package com.bahaa.eventorganizerapp.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bahaa.eventorganizerapp.Models.EventModel;
 import com.bahaa.eventorganizerapp.R;
+import com.bahaa.eventorganizerapp.Root.EventAdapterListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -25,11 +29,14 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter {
 
     private Context context;
     private ArrayList<EventModel> adapterModel;
+    private DialogInterface.OnClickListener dialogClickListener;
+    private EventAdapterListener eventAdapterListener;
 
 
     public EventRecyclerAdapter(Context context, ArrayList<EventModel> adapterModel) {
         this.context = context;
         this.adapterModel = adapterModel;
+        eventAdapterListener = (EventAdapterListener) context;
 
 
     }
@@ -56,6 +63,12 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter {
         return adapterModel.size();
     }
 
+    private void displayDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(context.getString(R.string.event_removal)).setPositiveButton(context.getString(R.string.yes_sure), dialogClickListener)
+                .setNegativeButton(context.getString(R.string.no_sure), dialogClickListener).show();
+    }
+
     //Here we bind all the children views of each cardView with their corresponding
     // actions to show & interact with them
     public class EventViewHolder extends RecyclerView.ViewHolder {
@@ -68,6 +81,9 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter {
 
         @BindView(R.id.future_events_title)
         public TextView futureTitle;
+
+        @BindView(R.id.future_events_card)
+        public CardView eventCard;
 
 
         EventViewHolder(View itemView) {
@@ -86,6 +102,45 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter {
             futureDate.setText(adapterModel.get(position).getStartDate());
 
             setAdjustedTitle(futureTitle, position, 90);
+
+            eventCard.setOnLongClickListener(v -> {
+
+                dialogClickListener = (dialog, which) -> {
+                    switch (which) {
+                        case DialogInterface.BUTTON_POSITIVE:
+                            //Yes button clicked
+                            EventModel headModel;
+                            adapterModel.get(position).setOrganizer(null);
+                            adapterModel.get(position).setTitle(null);
+                            adapterModel.get(position).setAddress(null);
+                            adapterModel.get(position).setCapacity(null);
+                            adapterModel.get(position).setDescription(null);
+                            adapterModel.get(position).setDistance(null);
+                            adapterModel.get(position).setStartDate(null);
+                            adapterModel.get(position).setEndDate(null);
+                            adapterModel.get(position).setStartTime(null);
+                            adapterModel.get(position).setLatitude(null);
+                            adapterModel.get(position).setLongitude(null);
+                            adapterModel.get(position).setImage(null);
+                            adapterModel.get(position).setTicketPrice(null);
+                            adapterModel.get(position).setTicketsAvailable(null);
+                            adapterModel.get(position).setCapacity(null);
+
+                            headModel = adapterModel.get(position);
+
+                            eventAdapterListener.onDataRemoved(headModel);
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            //No button clicked
+                            break;
+                    }
+                };
+
+                displayDialog();
+
+                return true;
+            });
         }
 
         private void setAdjustedTitle(TextView tv, int cardPos, int maxLength) {
@@ -105,7 +160,6 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter {
                     }
                 }
             });
-
         }
 
 

@@ -29,6 +29,7 @@ import com.bahaa.eventorganizerapp.Models.EventModel;
 import com.bahaa.eventorganizerapp.Models.HeadModel;
 import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
+import com.bahaa.eventorganizerapp.Root.EventAdapterListener;
 import com.bahaa.eventorganizerapp.Root.HeadAdapterListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
@@ -48,7 +49,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class HomeActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener {
+public class HomeActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener, EventAdapterListener {
 
     private static final int GALLERY_INTENT = 22;
 
@@ -352,9 +353,19 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
     }
 
     @Override
+    public void onDataRemoved(EventModel event) {
+        String EVENTS_DB = "event";
+        //Save head key before destroy the head..
+        String headKey = event.getKey();
+        event.setKey(null);
+        mRef.child(EVENTS_DB).child(headKey).setValue(event);
+    }
+
+    @Override
     protected void onDestroy() {
         unbinder.unbind();
         super.onDestroy();
     }
+
 }
 
