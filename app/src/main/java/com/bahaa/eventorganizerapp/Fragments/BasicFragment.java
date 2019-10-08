@@ -40,7 +40,7 @@ public class BasicFragment extends Fragment {
         return v;
     }
 
-    @OnClick(R.id.dummy_fragment_btn)
+    @OnClick(R.id.basic_event_next)
     void launchMoreInfoFragment(){
         Log.i("statuss", "clicked!");
         MoreFragment moreFragment = new MoreFragment();
