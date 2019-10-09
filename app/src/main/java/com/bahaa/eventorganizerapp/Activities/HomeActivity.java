@@ -51,17 +51,21 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
     @BindView(R.id.nv)
     NavigationView navigationView;
 
-    //Event image..
+    //Bind Views
     @BindView(R.id.add_event_btn)
     AppCompatButton addEventButton;
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    View header;
-    TextView headName;
 
+    View header;
+
+    TextView headName;
 
     @BindView(R.id.events_rv)
     RecyclerView recyclerView;
+
+    //Firebase DB
     private DatabaseReference mRef;
 
     //Firebase Auth

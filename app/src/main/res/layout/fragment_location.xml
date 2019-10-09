@@ -76,7 +76,7 @@
         android:layout_alignParentBottom="true">
 
         <TextView
-            android:id="@+id/basic_event_next"
+            android:id="@+id/location_event_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/horizontal_line"

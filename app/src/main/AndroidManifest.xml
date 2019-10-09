@@ -12,7 +12,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAPS_API_KEY" />
-        <activity android:name=".Activities.EventActivity"></activity>
+        <activity android:name=".Activities.EventActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Activities.HomeActivity" />
         <activity android:name=".Activities.LoginActivity">
             <intent-filter>

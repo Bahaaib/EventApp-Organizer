@@ -3,7 +3,6 @@ package com.bahaa.eventorganizerapp.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.bahaa.eventorganizerapp.Activities.HomeActivity;
+import com.bahaa.eventorganizerapp.Models.EventModel;
 import com.bahaa.eventorganizerapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,7 +21,12 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -28,8 +34,15 @@ import butterknife.Unbinder;
 
 public class LocationFragment extends Fragment implements OnMapReadyCallback {
 
+    @BindView(R.id.location_event_address)
+    TextInputEditText eventAddressField;
+
     private MarkerOptions markerOptions;
 
+    //Firebase DB
+    private DatabaseReference mRef;
+
+    private EventModel event;
     private Unbinder unbinder;
 
     public LocationFragment() {
@@ -45,10 +58,46 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback {
 
         unbinder = ButterKnife.bind(this, v);
 
+        initFirebaseDB();
+        getBundleArguments();
         setupEventLocationMap();
 
         return v;
     }
+
+    @OnClick(R.id.location_event_save)
+    void saveEventToDB(){
+        addDataToEventModel();
+        String EVENT_DB = "event";
+        mRef.child(EVENT_DB).push().setValue(event, (databaseError, databaseReference) -> {
+            displayToast("تم أضافة الإيفنت بنجاح");
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        });
+    }
+
+    private void initFirebaseDB(){
+        FirebaseApp.initializeApp(getActivity());
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        mRef = database.getReference();
+    }
+
+    private void getBundleArguments(){
+        String EVENT_INFO_KEY = "event";
+        Bundle bundle = getArguments();
+
+        if (bundle != null){
+            event = (EventModel) bundle.getSerializable(EVENT_INFO_KEY);
+        }
+    }
+
+    private void addDataToEventModel(){
+        String address = eventAddressField.getText().toString();
+        event.setAddress(address);
+
+    }
+
 
     private void setupEventLocationMap() {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
@@ -101,7 +150,8 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback {
     void recordLatLng() {
         double lat = markerOptions.getPosition().latitude;
         double lng = markerOptions.getPosition().longitude;
-
+        event.setLatitude(lat);
+        event.setLongitude(lng);
         displayToast("تم تسجيل اللوكيشن بنجاح");
     }
 

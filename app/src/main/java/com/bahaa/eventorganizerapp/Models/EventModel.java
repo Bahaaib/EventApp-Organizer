@@ -1,6 +1,8 @@
 package com.bahaa.eventorganizerapp.Models;
 
-public class EventModel {
+import java.io.Serializable;
+
+public class EventModel implements Serializable {
 
     private String key;
     private String title;

@@ -52,6 +52,12 @@ public class MoreFragment extends Fragment {
     StorageReference storage;
 
     //Bind Views
+    @BindView(R.id.more_event_price)
+    TextInputEditText eventPriceField;
+
+    @BindView(R.id.more_event_capacity)
+    TextInputEditText eventCapacityField;
+
     @BindView(R.id.more_event_start_date)
     TextInputEditText startDateField;
 
@@ -64,7 +70,7 @@ public class MoreFragment extends Fragment {
     @BindView(R.id.more_event_end_time)
     TextInputEditText endTimeField;
 
-
+    private EventModel event;
     Unbinder unbinder;
 
     public MoreFragment() {
@@ -81,6 +87,7 @@ public class MoreFragment extends Fragment {
         unbinder = ButterKnife.bind(this, v);
 
         initFirebaseStorage();
+        getBundleArguments();
         setupProgressBar();
         listenToDatePicker();
         listenToTimePicker();
@@ -145,13 +152,29 @@ public class MoreFragment extends Fragment {
 
     @OnClick(R.id.more_event_next)
     void launchMoreInfoFragment() {
+        String EVENT_INFO_KEY = "event";
+        addDataToEventModel();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(EVENT_INFO_KEY, event);
+
         LocationFragment locationFragment = new LocationFragment();
+        locationFragment.setArguments(bundle);
         FragmentManager manager = getFragmentManager();
+
         assert manager != null;
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fragment_container, locationFragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    private void getBundleArguments(){
+        String EVENT_INFO_KEY = "event";
+        Bundle bundle = getArguments();
+
+        if (bundle != null){
+            event = (EventModel) bundle.getSerializable(EVENT_INFO_KEY);
+        }
     }
 
     private void setupProgressBar() {
@@ -160,7 +183,6 @@ public class MoreFragment extends Fragment {
     }
 
     private void addUriToDatabase(Uri uri) {
-        EventModel event = new EventModel();
         event.setImage(String.valueOf(uri));
     }
 
@@ -206,6 +228,23 @@ public class MoreFragment extends Fragment {
             }
         };
 
+
+    }
+
+    private void addDataToEventModel(){
+        String price = eventPriceField.getText().toString();
+        String capacity = eventCapacityField.getText().toString();
+        String startDate = startDateField.getText().toString();
+        String endDate = endDateField.getText().toString();
+        String startTime = startTimeField.getText().toString();
+        String endTime = endTimeField.getText().toString();
+
+        event.setTicketPrice(Float.valueOf(price));
+        event.setCapacity(Integer.valueOf(capacity));
+        event.setStartDate(startDate);
+        event.setEndDate(endDate);
+        event.setStartTime(startTime);
+        event.setEndTime(endTime);
 
     }
 
