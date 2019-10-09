@@ -2,12 +2,10 @@ package com.bahaa.eventorganizerapp.Fragments;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -42,13 +40,15 @@ public class BasicFragment extends Fragment {
 
     @OnClick(R.id.basic_event_next)
     void launchMoreInfoFragment(){
-        Log.i("statuss", "clicked!");
         MoreFragment moreFragment = new MoreFragment();
         FragmentManager manager = getFragmentManager();
+        assert manager != null;
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fragment_container, moreFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+
 
 }
