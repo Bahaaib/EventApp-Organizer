@@ -59,7 +59,7 @@
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/more_event_upload_button"
+        android:id="@+id/location_event_latlng_button"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_below="@+id/location_event_map_container"
