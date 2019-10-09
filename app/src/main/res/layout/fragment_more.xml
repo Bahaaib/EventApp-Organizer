@@ -121,20 +121,35 @@
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/more_event_next"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/more_event_upload_button"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
-        android:drawableRight="@drawable/ic_arrow"
-        android:gravity="center"
-        android:text="NEXT"
-        android:textColor="#000000"
-        android:textSize="20dp" />
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/more_event_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/horizontal_line"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:gravity="center"
+            android:text="NEXT"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/dialog_admin_status"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dividingLine_margin_top"
+            android:background="@android:color/darker_gray" />
+    </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/more_event_upload_button"
@@ -147,33 +162,6 @@
         android:elevation="6dp"
         android:text="رفع صورة"
         android:textColor="@color/colorWhite" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/more_event_price_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="120dp"
-        android:gravity="center">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/more_event_price"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/password_margin_top"
-            android:background="@drawable/rounded_edittext"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="سعر التذكرة"
-            android:inputType="numberDecimal"
-            android:padding="@dimen/drawable_padding"
-            android:textColorHint="@color/darkerGray" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/more_event_capacity_layout"
@@ -203,4 +191,30 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/more_event_price_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="120dp"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/more_event_price"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="سعر التذكرة"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
 </RelativeLayout>

@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/location_event_map_container"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/location_event_address_layout"
         android:layout_marginTop="50dp">
 
@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/location_event_address_layout"
         android:layout_marginTop="20dp"
-        android:text="ضع مؤشر الخريطة على مكان الإيفنت"
+        android:text="ضع مؤشر الخريطة على مكان الإيفنت ثم اضغط تسجيل اللوكيشن"
         android:textColor="@color/colorBlack"
         />
 
@@ -62,12 +62,43 @@
         android:id="@+id/location_event_latlng_button"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/location_event_map_container"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"
         android:background="@drawable/rounded_button"
         android:elevation="6dp"
         android:text="تسجيل اللوكيشن" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/basic_event_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/horizontal_line"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_check"
+            android:gravity="center"
+            android:text="SAVE"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/dialog_admin_status"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dividingLine_margin_top"
+            android:background="@android:color/darker_gray" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
