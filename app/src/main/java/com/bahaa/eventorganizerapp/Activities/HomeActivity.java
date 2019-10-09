@@ -1,11 +1,7 @@
 package com.bahaa.eventorganizerapp.Activities;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -31,7 +26,6 @@ import com.bahaa.eventorganizerapp.R;
 import com.bahaa.eventorganizerapp.Root.DialogListener;
 import com.bahaa.eventorganizerapp.Root.EventAdapterListener;
 import com.bahaa.eventorganizerapp.Root.HeadAdapterListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,8 +34,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -52,7 +44,6 @@ import butterknife.Unbinder;
 
 public class HomeActivity extends AppCompatActivity implements DialogListener, HeadAdapterListener, EventAdapterListener {
 
-    private static final int GALLERY_INTENT = 22;
 
     ArrayList<HeadModel> headList;
     @BindView(R.id.drawer_layout)
@@ -68,8 +59,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
     View header;
     TextView headName;
 
-    //Firebase Storage..
-    StorageReference storage;
+
     @BindView(R.id.events_rv)
     RecyclerView recyclerView;
     private DatabaseReference mRef;
@@ -81,7 +71,6 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
 
     //Navigation Drawer
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private ProgressDialog mProgressDialog;
     private boolean isAdmin;
     private Unbinder unbinder;
     private ArrayList<EventModel> eventsList;
@@ -113,20 +102,6 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         //Init|Recall SharedPrefs..
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         restoreSavedPrefs();
-
-        //Gallery image..
-        mProgressDialog = new ProgressDialog(this);
-
-       /* galleryButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(intent, GALLERY_INTENT);
-        });*/
-
-
-
-        //Firebase storage
-        storage = FirebaseStorage.getInstance().getReference();
 
 
         //Navigation Drawer
@@ -182,44 +157,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) {
-            Uri uri = null;
-            if (data != null) {
-                uri = data.getData();
-            }
 
-            if (uri != null) {
-                String path = uri.getLastPathSegment();
-
-                if (!isNetworkConnected()) {
-                    displayToast(getString(R.string.check_connection));
-                } else {
-                    mProgressDialog.setMessage(getString(R.string.upload_progress));
-                    mProgressDialog.show();
-
-                    assert path != null;
-                    StorageReference offerRef = storage.child("offers").child(path);
-
-                    offerRef.putFile(uri).addOnSuccessListener(taskSnapshot -> {
-
-                        mProgressDialog.dismiss();
-
-                        final Task<Uri> task = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                        task.addOnSuccessListener(uri1 -> {
-                            addUriToDatabase(uri1);
-
-                            String uploadMsg = getString(R.string.upload_success);
-                            displayToast(uploadMsg);
-                        });
-                    });
-                }
-            }
-        }
-
-    }
 
     private void setupEventsRV() {
         eventsList = new ArrayList<>();
@@ -256,6 +194,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         for (DataSnapshot db : dataSnapshot.getChildren()) {
             EventModel model = db.getValue(EventModel.class);
             eventsList.add(model);
+            assert model != null;
             model.setKey(db.getKey());
             adapter.notifyDataSetChanged();
             Log.i("Statuss", model.getTitle() + " " + model.getTicketsAvailable());
@@ -325,11 +264,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
         finish();
     }
 
-    private void addUriToDatabase(Uri uri) {
-        // OfferModel offer = new OfferModel();
-        //offer.setImgUrl(String.valueOf(uri));
-        //mRef.child(OFFER_DB).push().setValue(offer);
-    }
+
 
     private void moveToPrivilegeActivity() {
         Intent intent = new Intent(HomeActivity.this, AdminActivity.class);
@@ -342,11 +277,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
                 .show();
     }
 
-    private boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        return cm.getActiveNetworkInfo() != null;
-    }
 
 
     @Override
