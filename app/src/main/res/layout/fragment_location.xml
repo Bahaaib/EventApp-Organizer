@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.LocationFragment">
 
 
-</FrameLayout>
+    <RelativeLayout
+        android:id="@+id/location_event_map_container"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@+id/location_event_address_layout"
+        android:layout_marginTop="50dp">
+
+        <fragment
+            android:id="@+id/location_event_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/location_event_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/location_event_address"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="right|top"
+            android:hint="عنوان الإيفنت"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/location_event_address_layout"
+        android:layout_marginTop="20dp"
+        android:text="ضع مؤشر الخريطة على مكان الإيفنت"
+        android:textColor="@color/colorBlack"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/more_event_upload_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/location_event_map_container"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_button"
+        android:elevation="6dp"
+        android:text="تسجيل اللوكيشن" />
+
+
+</RelativeLayout>

@@ -1,113 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".Fragments.BasicFragment">
 
-    <RelativeLayout
+
+    <TextView
+        android:id="@+id/basic_event_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/basic_event_organizer_layout"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:drawableRight="@drawable/ic_arrow"
+        android:gravity="center"
+        android:text="NEXT"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/basic_event_desc_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true">
+        android:layout_below="@+id/basic_event_title_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/basic_event_title_layout"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/basic_event_desc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:gravity="center">
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="right|top"
+            android:hint="وصف الإيفنت..."
+            android:inputType="textMultiLine"
+            android:padding="@dimen/drawable_padding"
+            android:scrollbars="vertical"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/basic_event_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/password_margin_top"
-                android:background="@drawable/rounded_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="مسمى الإيفنت"
-                android:inputType="text"
-                android:padding="@dimen/drawable_padding"
-                android:textColorHint="@color/darkerGray" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/basic_event_organizer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/basic_event_desc_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/basic_event_desc_layout"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/basic_event_organizer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/basic_event_title_layout"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:gravity="center">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/basic_event_desc"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/password_margin_top"
-                android:background="@drawable/rounded_edittext"
-                android:ems="10"
-                android:gravity="right|top"
-                android:hint="وصف الإيفنت..."
-                android:scrollbars="vertical"
-                android:inputType="textMultiLine"
-                android:padding="@dimen/drawable_padding"
-                android:textColorHint="@color/darkerGray" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/basic_event_organizer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/basic_event_desc_layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:gravity="center">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/basic_event_organizer"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/password_margin_top"
-                android:background="@drawable/rounded_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="منظم الإيفنت"
-                android:inputType="textPersonName"
-                android:padding="@dimen/drawable_padding"
-                android:textColorHint="@color/darkerGray" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NEXT"
-            android:id="@+id/basic_event_next"
-            android:textColor="#000000"
-            android:layout_below="@+id/basic_event_organizer_layout"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
             android:gravity="center"
-            android:layout_marginBottom="30dp"
-            android:textSize="20dp"
-            android:drawableRight="@drawable/ic_arrow"/>
+            android:hint="منظم الإيفنت"
+            android:inputType="textPersonName"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </RelativeLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/basic_event_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/basic_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="مسمى الإيفنت"
+            android:inputType="text"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-</ScrollView>
+</RelativeLayout>
