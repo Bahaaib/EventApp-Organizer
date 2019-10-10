@@ -20,8 +20,8 @@
     <string name="menu_logout">خروج</string>
     <string name="phone_txt">ادخل رقم الموبايل</string>
     <string name="verification_txt">الرمز التأكيدي</string>
-    <string name="incomplete_number">Incomplete Number</string>
-    <string name="not_auth">Not Authorized!</string>
+    <string name="incomplete_number">رقم غير صحيح</string>
+    <string name="not_auth">رقم غير مصرح به</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="logging_out">Logging out</string>

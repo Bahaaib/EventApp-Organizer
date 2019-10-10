@@ -3,14 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".Activities.LoginActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_dummy_btn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Login" />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/system" />
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/email_margin_top"
+        android:gravity="center">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number"
+            android:layout_width="@dimen/edittext_width"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/email_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:drawableStart="@drawable/ic_phone"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/phone_txt"
+            android:inputType="phone"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/login_btn_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/verification_layout"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/password_margin_top"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/verification_code"
+            android:layout_width="150dp"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/password_margin_top"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/verification_txt"
+            android:inputType="phone"
+            android:padding="@dimen/drawable_padding"
+            android:textColorHint="@color/darkerGray"
+            android:visibility="invisible" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verification_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="470dp"
+        android:background="@color/colorPrimary"
+        android:text="تأكيد"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

@@ -252,8 +252,7 @@ public class HomeActivity extends AppCompatActivity implements DialogListener, H
     private void restoreSavedPrefs() {
         String PHONE_KEY = "head_phone";
         String EMPTY_KEY = "empty";
-        //headPhoneNumber = preferences.getString(PHONE_KEY, EMPTY_KEY);
-        headPhoneNumber = "01009540399";
+        headPhoneNumber = preferences.getString(PHONE_KEY, EMPTY_KEY);
         Log.i("Statuss", "Num: " + headPhoneNumber);
 
     }
